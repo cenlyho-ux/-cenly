@@ -1,0 +1,61 @@
+<view class="container">
+  <view class="header">
+    <view class="level-badge">第 {{currentLevel}} 关</view>
+    <view class="timer">{{formattedTime}}</view>
+    <view class="actions">
+      <view class="action-btn {{history.length === 0 ? 'disabled' : ''}}" bindtap="handleUndo">返回</view>
+      <view class="action-btn" bindtap="handleShuffle">打乱</view>
+    </view>
+  </view>
+
+  <!-- 游戏区域 -->
+  <view class="game-board">
+    <block wx:for="{{blocks}}" wx:key="id">
+      <view 
+        class="block {{item.isCovered ? 'covered' : ''}}" 
+        style="left: {{item.x}}px; top: {{item.y}}px; z-index: {{item.level}};"
+        bindtap="handleBlockTap"
+        data-id="{{item.id}}"
+        wx:if="{{item.status === 0}}"
+      >
+        <image class="block-icon" src="/images/{{item.type}}.png" mode="aspectFit"></image>
+        <view class="mask" wx:if="{{item.isCovered}}"></view>
+      </view>
+    </block>
+  </view>
+
+  <!-- 槽位区域 -->
+  <view class="slot-area">
+    <view class="slot-box">
+      <block wx:for="{{slots}}" wx:key="id">
+        <view class="slot-item">
+          <image class="block-icon" src="/images/{{item.type}}.png" mode="aspectFit"></image>
+        </view>
+      </block>
+    </view>
+  </view>
+
+  <!-- 失败弹窗 -->
+  <view class="modal" wx:if="{{showFailModal}}">
+    <view class="modal-content">
+      <view class="modal-title">服了没？</view>
+      <view class="modal-desc">本次用时：{{formattedTime}}</view>
+      <button class="btn btn-primary" open-type="share" bindtap="handleRevive">不服继续</button>
+      <button class="btn btn-default" bindtap="restartGame">服了 (重开)</button>
+      <button class="btn btn-danger" bindtap="goHome">不玩了</button>
+    </view>
+  </view>
+
+  <!-- 胜利弹窗 -->
+  <view class="modal" wx:if="{{showWinModal}}">
+    <view class="modal-content">
+      <view class="modal-title win-title">过关了！</view>
+      <view class="stats-box">
+        <view class="stat-item">总用时：<text class="bold">{{formattedTime}}</text></view>
+        <view class="stat-item">分享次数：<text class="bold">{{shareCount}}</text></view>
+        <view class="stat-item">复活次数：<text class="bold">{{reviveCount}}</text></view>
+      </view>
+      <button class="btn btn-primary" bindtap="restartGame">再玩一次</button>
+    </view>
+  </view>
+</view>

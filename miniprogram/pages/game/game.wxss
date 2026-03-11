@@ -1,0 +1,212 @@
+page {
+  background-color: #c3e88d;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+.container {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: relative;
+}
+
+.header {
+  width: 90%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: rgba(255, 255, 255, 0.4);
+  padding: 15rpx 30rpx;
+  border-radius: 50rpx;
+  margin-top: 30rpx;
+  box-sizing: border-box;
+}
+
+.level-badge {
+  background-color: #4a5d23;
+  color: white;
+  padding: 5rpx 15rpx;
+  border-radius: 10rpx;
+  font-size: 24rpx;
+  font-weight: bold;
+}
+
+.timer {
+  color: #4a5d23;
+  font-weight: bold;
+  font-family: monospace;
+}
+
+.actions {
+  display: flex;
+  gap: 15rpx;
+}
+
+.action-btn {
+  background-color: white;
+  color: #4a5d23;
+  padding: 10rpx 20rpx;
+  border-radius: 30rpx;
+  font-size: 24rpx;
+  box-shadow: 0 2rpx 5rpx rgba(0,0,0,0.1);
+}
+
+.action-btn.disabled {
+  opacity: 0.5;
+}
+
+.game-board {
+  width: 100%;
+  height: 60vh;
+  position: relative;
+  margin-top: 30rpx;
+}
+
+.block {
+  width: 80rpx;
+  height: 80rpx;
+  position: absolute;
+  background-color: #fff;
+  border-radius: 10rpx;
+  box-shadow: 0 6rpx 0 #999, 0 8rpx 10rpx rgba(0,0,0,0.3);
+  border: 2rpx solid #ddd;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: all 0.3s;
+}
+
+.block-icon {
+  width: 60rpx;
+  height: 60rpx;
+}
+
+.mask {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  border-radius: 10rpx;
+}
+
+.slot-area {
+  width: 100%;
+  height: 20vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.slot-box {
+  width: 620rpx;
+  height: 100rpx;
+  background-color: rgba(255, 255, 255, 0.5);
+  border-radius: 20rpx;
+  display: flex;
+  padding: 10rpx;
+  box-sizing: border-box;
+  gap: 10rpx;
+  border: 4rpx solid #8b5a2b;
+}
+
+.slot-item {
+  width: 80rpx;
+  height: 80rpx;
+  background-color: #fff;
+  border-radius: 10rpx;
+  box-shadow: 0 4rpx 0 #999;
+  border: 2rpx solid #ddd;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.6);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 9999;
+}
+
+.modal-content {
+  width: 500rpx;
+  background-color: #fff;
+  border-radius: 30rpx;
+  padding: 40rpx;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.modal-title {
+  font-size: 40rpx;
+  font-weight: bold;
+  margin-bottom: 10rpx;
+  color: #333;
+}
+
+.win-title {
+  color: #4a5d23;
+  margin-bottom: 30rpx;
+}
+
+.modal-desc {
+  font-size: 28rpx;
+  color: #666;
+  margin-bottom: 40rpx;
+  font-family: monospace;
+}
+
+.stats-box {
+  width: 100%;
+  background-color: #f9f9f9;
+  border-radius: 20rpx;
+  padding: 20rpx;
+  margin-bottom: 40rpx;
+  box-sizing: border-box;
+}
+
+.stat-item {
+  font-size: 28rpx;
+  color: #666;
+  margin-bottom: 10rpx;
+  text-align: center;
+}
+
+.bold {
+  font-weight: bold;
+  color: #333;
+}
+
+.btn {
+  width: 100%;
+  margin-bottom: 20rpx;
+  border-radius: 40rpx;
+  font-size: 32rpx;
+}
+
+.btn-primary {
+  background-color: #ff5722;
+  color: #fff;
+}
+
+.btn-default {
+  background-color: #f0f0f0;
+  color: #333;
+}
+
+.btn-danger {
+  background-color: #999;
+  color: #fff;
+}
